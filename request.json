@@ -1,0 +1,418 @@
+
+{
+  "decision_id": "76770e3a-335e-4152-9b51-7f7830644051",
+  "input": {
+    "apiVersion": "admission.k8s.io/v1beta1",
+    "kind": "AdmissionReview",
+    "request": {
+      "dryRun": false,
+      "kind": {
+        "group": "",
+        "kind": "Pod",
+        "version": "v1"
+      },
+      "name": "nginx",
+      "namespace": "default",
+      "object": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "annotations": {
+            "payload": "somebadstuff"
+          },
+          "creationTimestamp": "2021-08-22T17:06:50Z",
+          "labels": {
+            "run": "nginx"
+          },
+          "managedFields": [
+            {
+              "apiVersion": "v1",
+              "fieldsType": "FieldsV1",
+              "fieldsV1": {
+                "f:metadata": {
+                  "f:labels": {
+                    ".": {},
+                    "f:run": {}
+                  }
+                },
+                "f:spec": {
+                  "f:containers": {
+                    "k:{\"name\":\"nginx\"}": {
+                      ".": {},
+                      "f:image": {},
+                      "f:imagePullPolicy": {},
+                      "f:name": {},
+                      "f:resources": {},
+                      "f:terminationMessagePath": {},
+                      "f:terminationMessagePolicy": {}
+                    }
+                  },
+                  "f:dnsPolicy": {},
+                  "f:enableServiceLinks": {},
+                  "f:restartPolicy": {},
+                  "f:schedulerName": {},
+                  "f:securityContext": {},
+                  "f:terminationGracePeriodSeconds": {}
+                }
+              },
+              "manager": "kubectl-run",
+              "operation": "Update",
+              "time": "2021-08-22T17:06:50Z"
+            },
+            {
+              "apiVersion": "v1",
+              "fieldsType": "FieldsV1",
+              "fieldsV1": {
+                "f:status": {
+                  "f:conditions": {
+                    "k:{\"type\":\"ContainersReady\"}": {
+                      ".": {},
+                      "f:lastProbeTime": {},
+                      "f:lastTransitionTime": {},
+                      "f:status": {},
+                      "f:type": {}
+                    },
+                    "k:{\"type\":\"Initialized\"}": {
+                      ".": {},
+                      "f:lastProbeTime": {},
+                      "f:lastTransitionTime": {},
+                      "f:status": {},
+                      "f:type": {}
+                    },
+                    "k:{\"type\":\"Ready\"}": {
+                      ".": {},
+                      "f:lastProbeTime": {},
+                      "f:lastTransitionTime": {},
+                      "f:status": {},
+                      "f:type": {}
+                    }
+                  },
+                  "f:containerStatuses": {},
+                  "f:hostIP": {},
+                  "f:phase": {},
+                  "f:podIP": {},
+                  "f:podIPs": {
+                    ".": {},
+                    "k:{\"ip\":\"172.17.0.4\"}": {
+                      ".": {},
+                      "f:ip": {}
+                    }
+                  },
+                  "f:startTime": {}
+                }
+              },
+              "manager": "kubelet",
+              "operation": "Update",
+              "time": "2021-08-22T17:07:03Z"
+            },
+            {
+              "apiVersion": "v1",
+              "fieldsType": "FieldsV1",
+              "fieldsV1": {
+                "f:metadata": {
+                  "f:annotations": {
+                    ".": {},
+                    "f:payload": {}
+                  }
+                }
+              },
+              "manager": "kubectl-annotate",
+              "operation": "Update",
+              "time": "2021-08-23T02:51:08Z"
+            }
+          ],
+          "name": "nginx",
+          "namespace": "default",
+          "resourceVersion": "31673",
+          "uid": "a87b233b-325e-4174-897c-5a2ba5ad3251"
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "nginx",
+              "imagePullPolicy": "Always",
+              "name": "nginx",
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "default-token-bgdnd",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "minikube",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "default-token-bgdnd",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "default-token-bgdnd"
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:06:50Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:07:03Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:07:03Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:06:50Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "docker://3b761a51bc54644fbf904817ce372b7a04477f450a6ede4f2528229e2ac8b728",
+              "image": "nginx:latest",
+              "imageID": "docker-pullable://nginx@sha256:4d4d96ac750af48c6a551d757c1cbfc071692309b491b70b2b8976e102dd3fef",
+              "lastState": {},
+              "name": "nginx",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2021-08-22T17:07:03Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "192.168.49.2",
+          "phase": "Running",
+          "podIP": "172.17.0.4",
+          "podIPs": [
+            {
+              "ip": "172.17.0.4"
+            }
+          ],
+          "qosClass": "BestEffort",
+          "startTime": "2021-08-22T17:06:50Z"
+        }
+      },
+      "oldObject": {
+        "apiVersion": "v1",
+        "kind": "Pod",
+        "metadata": {
+          "creationTimestamp": "2021-08-22T17:06:50Z",
+          "labels": {
+            "run": "nginx"
+          },
+          "name": "nginx",
+          "namespace": "default",
+          "resourceVersion": "31673",
+          "uid": "a87b233b-325e-4174-897c-5a2ba5ad3251"
+        },
+        "spec": {
+          "containers": [
+            {
+              "image": "nginx",
+              "imagePullPolicy": "Always",
+              "name": "nginx",
+              "resources": {},
+              "terminationMessagePath": "/dev/termination-log",
+              "terminationMessagePolicy": "File",
+              "volumeMounts": [
+                {
+                  "mountPath": "/var/run/secrets/kubernetes.io/serviceaccount",
+                  "name": "default-token-bgdnd",
+                  "readOnly": true
+                }
+              ]
+            }
+          ],
+          "dnsPolicy": "ClusterFirst",
+          "enableServiceLinks": true,
+          "nodeName": "minikube",
+          "preemptionPolicy": "PreemptLowerPriority",
+          "priority": 0,
+          "restartPolicy": "Always",
+          "schedulerName": "default-scheduler",
+          "securityContext": {},
+          "serviceAccount": "default",
+          "serviceAccountName": "default",
+          "terminationGracePeriodSeconds": 30,
+          "tolerations": [
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/not-ready",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            },
+            {
+              "effect": "NoExecute",
+              "key": "node.kubernetes.io/unreachable",
+              "operator": "Exists",
+              "tolerationSeconds": 300
+            }
+          ],
+          "volumes": [
+            {
+              "name": "default-token-bgdnd",
+              "secret": {
+                "defaultMode": 420,
+                "secretName": "default-token-bgdnd"
+              }
+            }
+          ]
+        },
+        "status": {
+          "conditions": [
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:06:50Z",
+              "status": "True",
+              "type": "Initialized"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:07:03Z",
+              "status": "True",
+              "type": "Ready"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:07:03Z",
+              "status": "True",
+              "type": "ContainersReady"
+            },
+            {
+              "lastProbeTime": null,
+              "lastTransitionTime": "2021-08-22T17:06:50Z",
+              "status": "True",
+              "type": "PodScheduled"
+            }
+          ],
+          "containerStatuses": [
+            {
+              "containerID": "docker://3b761a51bc54644fbf904817ce372b7a04477f450a6ede4f2528229e2ac8b728",
+              "image": "nginx:latest",
+              "imageID": "docker-pullable://nginx@sha256:4d4d96ac750af48c6a551d757c1cbfc071692309b491b70b2b8976e102dd3fef",
+              "lastState": {},
+              "name": "nginx",
+              "ready": true,
+              "restartCount": 0,
+              "started": true,
+              "state": {
+                "running": {
+                  "startedAt": "2021-08-22T17:07:03Z"
+                }
+              }
+            }
+          ],
+          "hostIP": "192.168.49.2",
+          "phase": "Running",
+          "podIP": "172.17.0.4",
+          "podIPs": [
+            {
+              "ip": "172.17.0.4"
+            }
+          ],
+          "qosClass": "BestEffort",
+          "startTime": "2021-08-22T17:06:50Z"
+        }
+      },
+      "operation": "UPDATE",
+      "options": {
+        "apiVersion": "meta.k8s.io/v1",
+        "fieldManager": "kubectl-annotate",
+        "kind": "UpdateOptions"
+      },
+      "requestKind": {
+        "group": "",
+        "kind": "Pod",
+        "version": "v1"
+      },
+      "requestResource": {
+        "group": "",
+        "resource": "pods",
+        "version": "v1"
+      },
+      "resource": {
+        "group": "",
+        "resource": "pods",
+        "version": "v1"
+      },
+      "uid": "60bec647-cb0d-4e1e-9091-dc81dfe7bf95",
+      "userInfo": {
+        "groups": [
+          "system:masters",
+          "system:authenticated"
+        ],
+        "username": "minikube-user"
+      }
+    }
+  },
+  "labels": {
+    "id": "10eb8a0e-3f17-4e99-9062-bb8804012f43",
+    "version": "0.31.0"
+  },
+  "level": "info",
+  "metrics": {
+    "counter_server_query_cache_hit": 1,
+    "timer_rego_query_eval_ns": 411630,
+    "timer_server_handler_ns": 1190278
+  },
+  "msg": "Decision Log",
+  "path": "system/main",
+  "requested_by": "172.17.0.1:42682",
+  "result": {
+    "apiVersion": "admission.k8s.io/v1beta1",
+    "kind": "AdmissionReview",
+    "response": {
+      "allowed": false,
+      "status": {
+        "reason": "Annotation 'payload' was found in the explicit deny list"
+      },
+      "uid": "60bec647-cb0d-4e1e-9091-dc81dfe7bf95"
+    }
+  },
+  "time": "2021-08-23T02:51:08Z",
+  "timestamp": "2021-08-23T02:51:08.771309035Z",
+  "type": "openpolicyagent.org/decision_logs"
+}
